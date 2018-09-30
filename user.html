@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Github</title>
+    <meta name="description" content=""/>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="userApp">
+    <div ng-controller="userCtrl">
+        <div ng-init="getUser()">
+        
+            <div class="container mt-5 main">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{user.avatar_url}}" width="100%">
+                    </div>
+                    <div class="col-md-8">
+                        <h2>{{user.name}}</h2>
+                        <h4 class="login">@{{user.login}}</h4>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> {{user.location}}<br>
+                        <i class="fa fa-link" aria-hidden="true"></i> {{user.blog}}
+                        {{user.email}}
+                        <div class="row mt-4">
+                            <div class="col-4">
+                                <button ng-click="showFollowers()" class="btn">
+                                    {{user.followers}} <br/>
+                                    Followers
+                                </button>
+                            </div>
+                            <div class="col-4">
+                                <button ng-click="showFollowing()" class="btn">
+                                    {{user.following}} <br/>
+                                    Following
+                                </button>
+                            </div>
+                            <div class="col-4">
+                                <button ng-click="showRepo()" class="btn">
+                                    {{user.public_repos}} <br/>
+                                    Repositories
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="repo" ng-style="displayRepo">
+                           <h3>Repositories</h3>
+                            <ul ng-repeat="repo in repo" class="repo-list py-3">
+                                <li class="repo-name">{{repo.name}}</li>
+                                <li class="repo-desc">{{repo.description}}</li>
+                                <ul class="repo-sub">
+                                    <li><i class="fa fa-circle" aria-hidden="true"></i> {{repo.language}}</li>
+                                    <li><i class="fa fa-code-fork" aria-hidden="true"></i> {{repo.forks}}</li>
+                                    <li><i class="fa fa-eye" aria-hidden="true"></i> {{repo.watchers}}</li>
+                                    <li><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{repo.open_issues}}</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div class="followers" ng-style="displayFollowers">
+                            <h3>Followers</h3>
+                            <ul ng-repeat="f in followers" class="fer-list py-3">
+                                <li><img src="{{f.avatar_url}}" width="50px"> {{f.login}}</li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="following" ng-style="displayFollowing">
+                            <h3>Following</h3>
+                            <ul ng-repeat="f in following" class="fer-list py-3">
+                                    <li><img src="{{f.avatar_url}}" width="50px"> {{f.login}}</li>
+                                    <li></li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    
+
+
+
+<script data-require="angular.js@1.4.7" data-semver="1.4.7" src="https://code.angularjs.org/1.4.7/angular.js"></script>
+<script src="app.js"></script>
+        
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Github</title>
+    <meta name="description" content=""/>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="searchApp" class="search">
+    <div ng-controller="searchCtrl">
+        <div ng-init="getData()">
+            <div class="row justify-content-center top-margin">
+                <div class="col-md-7">
+                    <h1 class="head">Github Search</h1>
+                    <div class="form-group search-input">
+                        <input type="text" ng-model="user" class="form-control" ng-focus="showBox()"> 
+                    </div> 
+                    <div class="search-box">
+                        <div ng-repeat="x in response | filter:user" class="search-field">
+                            <img src="{{x.avatar_url}}" width="20px">
+                            <a href="user.html?login={{x.login}}">{{ x.login }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+<script data-require="angular.js@1.4.7" data-semver="1.4.7" src="https://code.angularjs.org/1.4.7/angular.js"></script>
+<script src="app.js"></script>
+        
+</body>
+</html>
