@@ -12,14 +12,6 @@
     text-align: center;
 }
 
-.search-box{
-    background: rgb(250,250,250,0.5);
-    overflow-y: scroll;
-    height: 300px;
-    overflow-x: hidden;
-    display: none;
-}
-
 .search-input{
     margin-bottom: 0;
 }
@@ -32,14 +24,6 @@
     display: grid;
 }
 
-.search-field{
-    padding: 5px;
-    border-bottom: 1px solid #eee;
-}
-
-.search-field > a{
-    color: #273746;
-}
 
 .login{
     color: #808B96;
@@ -65,4 +49,47 @@
 .repo-sub > li{
     padding-left: 10px;
     font-size: 13px;
+}
+
+.results{
+    color: #AEB6BF;
+}
+
+.form-inline{
+    margin-bottom: 0;
+    width: 50%;
+    float: left;
+}
+.search-field{
+    width: 50% !important;
+    border-radius: 0;
+    border: 1px solid #007bff;
+}
+
+.search-button{
+    float: left;
+    border-radius: 0;
+}
+
+.search-page{
+    background: #f8f9fa;
+}
+
+nav{
+    background: #fff;
+}
+
+.search-main{
+    float: left;
+    width: 90%;
+}
+
+.login-link{
+    padding: 8px;
+    transition: 1s;
+}
+.login-link:hover{
+    cursor: pointer;
+    background: #D6DBDF;
+    padding: 8px;
 }

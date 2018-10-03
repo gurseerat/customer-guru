@@ -14,22 +14,20 @@
 </head>
 <body ng-app="searchApp" class="search">
     <div ng-controller="searchCtrl">
-        <div ng-init="getData()">
+        
             <div class="row justify-content-center top-margin">
                 <div class="col-md-7">
                     <h1 class="head">Github Search</h1>
-                    <div class="form-group search-input">
-                        <input type="text" ng-model="user" class="form-control" ng-focus="showBox()"> 
-                    </div> 
-                    <div class="search-box">
-                        <div ng-repeat="x in response | filter:user" class="search-field">
-                            <img src="{{x.avatar_url}}" width="20px">
-                            <a href="user.html?login={{x.login}}">{{ x.login }}</a>
-                        </div>
-                    </div>
+                    
+                        <form>
+                                <input type="text" ng-model="user" class="form-control search-main" placeholder="Search"> 
+                                <button type="submit" class="btn" ng-click="searchNav()">Search</button>
+                        </form>
+                   
+                    
                 </div>
             </div>
-        </div>
+       
     </div>
     
 

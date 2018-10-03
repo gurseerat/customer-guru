@@ -1,23 +1,40 @@
+//index.html
 angular.module('searchApp', [])
-.controller("searchCtrl", ["$scope", "$http",
-    function($scope, $http){
-        //Get data from api
-        $scope.getData = function() {
-            $http.get('https://api.github.com/search/users?q=tom').then(function(response) {
-                $scope.response = response.data.items;          
-            });
-          }
-          //Show search box on focus
-        $scope.showBox = function(){
-            var box = angular.element( document.querySelector( '.search-box' ) );
-            box.addClass('show');
+.controller("searchCtrl", ["$scope", "$window",
+    function($scope, $window){
+        
+        $scope.searchNav = function(){
+            $window.location.href = 'search.html?q='+$scope.user ;
         }
     }
     ]);
 
+    //search.html
+    angular.module('searchPageApp', [])
+    .config(['$locationProvider', 
+    function($locationProvider) { 
+        $locationProvider.html5Mode({
+             enabled: true, 
+             requireBase: false 
+            }); 
+    }])
+.controller("searchPageCtrl", ["$scope", "$http", "$window", "$location",
+    function($scope, $http, $window, $location){
+        var paramValue = $location.search().q; //Get parameter from url
+        //Get data from api
+        $scope.getSearch = function() {
+            $http.get('https://api.github.com/search/users?q='+paramValue).then(function(response) {
+                $scope.search = response.data.items;          
+            });
+          }
+          $scope.searchNav = function(){
+            $window.location.href = 'search.html?q='+$scope.user ;
+        }
+         
+    }
+    ]);
 
-    
-
+    //user.html
     angular.module('userApp', [])
     .config(['$locationProvider', 
         function($locationProvider) { 
@@ -99,6 +116,8 @@ angular.module('searchApp', [])
                         "display" : "grid"
                     }
                }
+           
         }
         ])
 
+       
