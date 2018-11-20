@@ -1,5 +1,5 @@
-# Customer Guru
-### Github Search Application
+
+# Github Search Application
 
 Search users on github and display their data (using AngularJS).
 
